@@ -1,2 +1,2 @@
-landscape_images/** filter=lfs diff=lfs merge=lfs -text
+landmark_images/** filter=lfs diff=lfs merge=lfs -text
 *.csv filter=lfs diff=lfs merge=lfs -text
