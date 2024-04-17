@@ -7,7 +7,7 @@ import os
 import random
 import re
 
-# Paths to models
+# Define your model paths and other constants
 models = {
     "Resnet-18 model": "../ML/checkpoints/transfer_exported.pt",
     "VGG-16": "../ML/checkpoints/transfer_exported_vgg.pt",
@@ -35,17 +35,6 @@ def classify_image(img, model):
         })
     return results
 
-def clean_landmark_name(name):
-    cleaned_name = re.sub(r'^\d+\.', '', name).replace('_', ' ')
-    return cleaned_name.strip()
-
-def get_sample_image_path(landmark_name):
-    folder_path = f"../ML/landmark_images/train/{landmark_name}"
-    if os.path.exists(folder_path):
-        sample_image = random.choice(os.listdir(folder_path))
-        return os.path.join(folder_path, sample_image)
-    return None
-
 def get_multiple_sample_images(landmark_name, num_images=5):
     folder_path = f"../ML/landmark_images/train/{landmark_name}"
     image_paths = []
@@ -55,52 +44,100 @@ def get_multiple_sample_images(landmark_name, num_images=5):
             image_paths.append(os.path.join(folder_path, image))
     return image_paths
 
+def clean_landmark_name(name):
+    return re.sub(r'^\d+\.', '', name).replace('_', ' ').strip()
+
+def main_page():
+    """ This page handles image classification and displaying similar images. """
+    st.title("TripRecs - Landmark Classifier")
+    model_choice = st.selectbox("Choose a backend for inference:", list(models.keys()))
+    loaded_model = load_model(models[model_choice])
+    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+    if uploaded_file is not None:
+        image = Image.open(uploaded_file)
+        st.image(image, caption='Uploaded Image.', use_column_width=True)
+        st.write("Classifying...")
+        labels = classify_image(image, loaded_model)
+        for label in labels:
+            st.write(f"{label['landmark']} (prob: {label['probability']})")
+        st.write("## You may also like:")
+        for label in labels:
+            cols = st.columns(5)
+            for col, img_path in zip(cols, label['sample_image_paths']):
+                if os.path.exists(img_path):
+                    img = Image.open(img_path)
+                    col.image(img, use_column_width=True)
+
+def search_by_images_page():
+    """ This page provides a search interface for users to find landmarks. """
+    st.title("Search Landmarks")
+    search_query = st.text_input("Enter a location to search for:")
+    if search_query:
+        search_results = search_landmarks(search_query)
+        if search_results:
+            for landmark, images in search_results.items():
+                st.write(f"### Images for {clean_landmark_name(landmark)}")
+                cols = st.columns(5)  # Fewer columns for larger images
+                for col, img_path in zip(cols, images):
+                    if os.path.exists(img_path):
+                        img = Image.open(img_path)
+                        col.image(img, use_column_width=True)
+        else:
+            st.write("No matching locations found.")
+
 def search_landmarks(query):
     folder_base = "../ML/landmark_images/train/"
     landmarks = [d for d in os.listdir(folder_base) if os.path.isdir(os.path.join(folder_base, d))]
-    matched_landmarks = [landmark for landmark in landmarks if query.lower() in landmark.lower()]
+    query_lower = query.lower()
+    matched_landmarks = [landmark for landmark in landmarks if query_lower in landmark.lower().replace('_', ' ')]
     results = {}
     for landmark in matched_landmarks:
         images = get_multiple_sample_images(landmark, num_images=5)
         results[landmark] = images
     return results
 
-st.title("TripRecs - Landmark Classifier")
+def set_custom_css():
+    """Injects custom CSS to style the app."""
+    custom_css = """
+    <style>
+        /* Modify the sidebar background color */
+        .css-1lcbmhc {
+            background-color: #f0f0f5 !important;
+        }
+        
+        /* Modify sidebar text color */
+        .css-1lcbmhc a {
+            color: #6C6C6F !important;
+        }
 
-# Dropdown for model selection
-model_choice = st.selectbox("Choose a backend for inference:", list(models.keys()))
-loaded_model = load_model(models[model_choice])
+        /* Sidebar link hover effect */
+        .css-1lcbmhc a:hover {
+            color: #ffffff !important;
+            background-color: #4a4a4a !important;
+        }
 
-# Image upload and classification
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
-if uploaded_file is not None:
-    image = Image.open(uploaded_file)
-    st.image(image, caption='Uploaded Image.', use_column_width=True)
-    st.write("Classifying...")
-    labels = classify_image(image, loaded_model)
-    for label in labels:
-        st.write(f"{label['landmark']} (prob: {label['probability']})")
+        /* Active page styling in sidebar */
+        .css-1lcbmhc a[data-baseweb="tab"] {
+            font-weight: bold !important;
+            color: #4A90E2 !important; /* Change this color for non-hover active links */
+        }
 
-    st.write("## You may also like:")
-    for label in labels:
-        cols = st.columns(5)
-        for col, img_path in zip(cols, label['sample_image_paths']):
-            if os.path.exists(img_path):
-                img = Image.open(img_path)
-                col.image(img, use_column_width=True)
+        /* Sidebar width adjustment if needed */
+        .css-1lcbmhc {
+            width: 300px !important;
+        }
+    </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
 
-# Search functionality
-st.write("## Search for a Location")
-search_query = st.text_input("Enter a location to search for:")
-if search_query:
-    search_results = search_landmarks(search_query)
-    if search_results:
-        for landmark, images in search_results.items():
-            st.write(f"### Images for {clean_landmark_name(landmark)}")
-            cols = st.columns(5)
-            for col, img_path in zip(cols, images):
-                if os.path.exists(img_path):
-                    img = Image.open(img_path)
-                    col.image(img, use_column_width=True)
-    else:
-        st.write("No matching locations found.")
+set_custom_css()
+
+# Your Streamlit app main code
+st.sidebar.title("TripRecs - Navigation")
+page = st.sidebar.radio("Choose a page:", ["Inference", "Search by Images"])
+
+if page == "Inference":
+    main_page()
+elif page == "Search by Images":
+    search_by_images_page()
+
