@@ -27,7 +27,6 @@ def classify_image(img, model):
     for i in range(5):
         landmark_name = model.class_names[idxs[i]]
         probability = softmax[idxs[i]]
-        # Gather multiple sample images for each prediction
         image_paths = get_multiple_sample_images(landmark_name, num_images=5)
         results.append({
             "landmark": landmark_name,
@@ -37,7 +36,6 @@ def classify_image(img, model):
     return results
 
 def clean_landmark_name(name):
-    # Remove leading numbers and period using regular expression
     cleaned_name = re.sub(r'^\d+\.', '', name).replace('_', ' ')
     return cleaned_name.strip()
 
@@ -57,12 +55,23 @@ def get_multiple_sample_images(landmark_name, num_images=5):
             image_paths.append(os.path.join(folder_path, image))
     return image_paths
 
+def search_landmarks(query):
+    folder_base = "../ML/landmark_images/train/"
+    landmarks = [d for d in os.listdir(folder_base) if os.path.isdir(os.path.join(folder_base, d))]
+    matched_landmarks = [landmark for landmark in landmarks if query.lower() in landmark.lower()]
+    results = {}
+    for landmark in matched_landmarks:
+        images = get_multiple_sample_images(landmark, num_images=5)
+        results[landmark] = images
+    return results
+
 st.title("TripRecs - Landmark Classifier")
 
 # Dropdown for model selection
 model_choice = st.selectbox("Choose a backend for inference:", list(models.keys()))
 loaded_model = load_model(models[model_choice])
 
+# Image upload and classification
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
@@ -71,15 +80,27 @@ if uploaded_file is not None:
     labels = classify_image(image, loaded_model)
     for label in labels:
         st.write(f"{label['landmark']} (prob: {label['probability']})")
-    
+
     st.write("## You may also like:")
-    # Create a row of columns for each prediction
     for label in labels:
-        #st.write(f"### Samples for {clean_landmark_name(label['landmark'])}")
         cols = st.columns(5)
-        if label['sample_image_paths']:
-            for col, img_path in zip(cols, label['sample_image_paths']):
+        for col, img_path in zip(cols, label['sample_image_paths']):
+            if os.path.exists(img_path):
+                img = Image.open(img_path)
+                col.image(img, use_column_width=True)
+
+# Search functionality
+st.write("## Search for a Location")
+search_query = st.text_input("Enter a location to search for:")
+if search_query:
+    search_results = search_landmarks(search_query)
+    if search_results:
+        for landmark, images in search_results.items():
+            st.write(f"### Images for {clean_landmark_name(landmark)}")
+            cols = st.columns(5)
+            for col, img_path in zip(cols, images):
                 if os.path.exists(img_path):
                     img = Image.open(img_path)
                     col.image(img, use_column_width=True)
-
+    else:
+        st.write("No matching locations found.")
