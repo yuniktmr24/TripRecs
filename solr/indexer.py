@@ -23,7 +23,7 @@ def process_file(file_path, batch_size=1000):
             print(f"Processed batch from {start} to {end}: {response.status_code} - {response.text}")
 
 # Specify the path to your JSON file
-file_path = './Travel_Data.json'
+file_path = './Merged_travel.json'
 
 # Call the function to process the file
 process_file(file_path)
