@@ -96,6 +96,25 @@ def search_landmarks(query):
         results[landmark] = images
     return results
 
+def travel_fare_page():
+    """ This page allows users to search for travel fares to landmarks. """
+    st.title("Travel Fare Lookup")
+    location_query = st.text_input("Enter a location to lookup travel fares for:", key="fareSearch")
+
+    # Placeholder for actual travel fare data lookup
+    if location_query:
+        # Example: Pretend we look up fares here and found some data
+        # In a real application, you would query a database or an API based on `location_query`
+        travel_fares = {"Example Destination": "$200 - $400", "Another Destination": "$300 - $500"}
+        
+        st.write(f"### Travel fare results for: {location_query}")
+        for destination, fare in travel_fares.items():
+            st.write(f"**{destination}:** {fare}")
+        
+        # If no fares found, display a message
+        # st.write("No travel fares found for this location.")
+
+
 def set_custom_css():
     """Injects custom CSS to style the app."""
     custom_css = """
@@ -132,12 +151,18 @@ def set_custom_css():
 
 set_custom_css()
 
-# Your Streamlit app main code
+# Main navigation
 st.sidebar.title("TripRecs - Navigation")
-page = st.sidebar.radio("Choose a page:", ["Inference", "Search by Images"])
-
+page = st.sidebar.radio(
+    "Choose a page:",
+    ["Inference", "Search by Images", "Travel Fare"]  
+)
+# Page selection
 if page == "Inference":
     main_page()
 elif page == "Search by Images":
     search_by_images_page()
+elif page == "Travel Fare": 
+    travel_fare_page()
+
 
