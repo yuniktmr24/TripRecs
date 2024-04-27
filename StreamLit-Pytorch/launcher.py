@@ -12,7 +12,8 @@ import requests
 models = {
     "Resnet-18 model": "../ML/checkpoints/transfer_exported.pt",
     "VGG-16": "../ML/checkpoints/transfer_exported_vgg.pt",
-    "MobileNet-v3-small": "../ML/checkpoints/transfer_exported_mobile_v3_small.pt"
+    "MobileNet-v3-small": "../ML/checkpoints/transfer_exported_mobile_v3_small.pt",
+    "Base": "../ML/checkpoints/original_exported.pt"
 }
 
 def load_model(model_path):
