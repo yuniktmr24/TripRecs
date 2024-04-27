@@ -1,0 +1,426 @@
+24/04/27 13:35:04 INFO SparkContext: Running Spark version 3.5.0
+24/04/27 13:35:04 INFO SparkContext: OS info Linux, 4.18.0-513.18.1.el8_9.x86_64, amd64
+24/04/27 13:35:04 INFO SparkContext: Java version 11.0.22
+24/04/27 13:35:04 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+24/04/27 13:35:04 INFO ResourceUtils: ==============================================================
+24/04/27 13:35:04 INFO ResourceUtils: No custom resources configured for spark.driver.
+24/04/27 13:35:04 INFO ResourceUtils: ==============================================================
+24/04/27 13:35:04 INFO SparkContext: Submitted application: Landmark Analytics
+24/04/27 13:35:04 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+24/04/27 13:35:04 INFO ResourceProfile: Limiting resource is cpu
+24/04/27 13:35:04 INFO ResourceProfileManager: Added ResourceProfile id: 0
+24/04/27 13:35:05 INFO SecurityManager: Changing view acls to: dilochan
+24/04/27 13:35:05 INFO SecurityManager: Changing modify acls to: dilochan
+24/04/27 13:35:05 INFO SecurityManager: Changing view acls groups to:
+24/04/27 13:35:05 INFO SecurityManager: Changing modify acls groups to:
+24/04/27 13:35:05 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: dilochan; groups with view permissions: EMPTY; users with modify permissions: dilochan; groups with modify permissions: EMPTY
+24/04/27 13:35:05 INFO Utils: Successfully started service 'sparkDriver' on port 41883.
+24/04/27 13:35:05 INFO SparkEnv: Registering MapOutputTracker
+24/04/27 13:35:05 INFO SparkEnv: Registering BlockManagerMaster
+24/04/27 13:35:05 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+24/04/27 13:35:05 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+24/04/27 13:35:05 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+24/04/27 13:35:05 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-14304e44-4191-411a-8531-45d76c80da60
+24/04/27 13:35:05 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+24/04/27 13:35:05 INFO SparkEnv: Registering OutputCommitCoordinator
+24/04/27 13:35:05 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+24/04/27 13:35:05 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+24/04/27 13:35:05 INFO SparkContext: Added JAR file:/s/chopin/k/grad/dilochan/Documents/cs535/TripRecs/LandmarkSparkAnalytics/target/scala-2.12/landmarksparkanalytics_2.12-0.1.jar at spark://charleston.cs.colostate.edu:41883/jars/landmarksparkanalytics_2.12-0.1.jar with timestamp 1714246504894
+24/04/27 13:35:05 INFO Executor: Starting executor ID driver on host charleston.cs.colostate.edu
+24/04/27 13:35:05 INFO Executor: OS info Linux, 4.18.0-513.18.1.el8_9.x86_64, amd64
+24/04/27 13:35:05 INFO Executor: Java version 11.0.22
+24/04/27 13:35:05 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+24/04/27 13:35:05 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@161aa04a for default.
+24/04/27 13:35:05 INFO Executor: Fetching spark://charleston.cs.colostate.edu:41883/jars/landmarksparkanalytics_2.12-0.1.jar with timestamp 1714246504894
+24/04/27 13:35:05 INFO TransportClientFactory: Successfully created connection to charleston.cs.colostate.edu/129.82.44.136:41883 after 15 ms (0 ms spent in bootstraps)
+24/04/27 13:35:05 INFO Utils: Fetching spark://charleston.cs.colostate.edu:41883/jars/landmarksparkanalytics_2.12-0.1.jar to /tmp/spark-e3bbe2d2-d336-4175-91e2-491952ab5d63/userFiles-0af52356-2bfd-4c6c-b6de-b8929b1f587c/fetchFileTemp5789271751163744271.tmp
+24/04/27 13:35:05 INFO Executor: Adding file:/tmp/spark-e3bbe2d2-d336-4175-91e2-491952ab5d63/userFiles-0af52356-2bfd-4c6c-b6de-b8929b1f587c/landmarksparkanalytics_2.12-0.1.jar to class loader default
+24/04/27 13:35:05 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 40471.
+24/04/27 13:35:05 INFO NettyBlockTransferService: Server created on charleston.cs.colostate.edu:40471
+24/04/27 13:35:05 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+24/04/27 13:35:05 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, charleston.cs.colostate.edu, 40471, None)
+24/04/27 13:35:05 INFO BlockManagerMasterEndpoint: Registering block manager charleston.cs.colostate.edu:40471 with 434.4 MiB RAM, BlockManagerId(driver, charleston.cs.colostate.edu, 40471, None)
+24/04/27 13:35:05 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, charleston.cs.colostate.edu, 40471, None)
+24/04/27 13:35:05 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, charleston.cs.colostate.edu, 40471, None)
+24/04/27 13:35:05 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+24/04/27 13:35:05 INFO SharedState: Warehouse path is 'file:/s/chopin/k/grad/dilochan/Documents/cs535/TripRecs/LandmarkSparkAnalytics/target/spark-warehouse'.
+24/04/27 13:35:06 INFO InMemoryFileIndex: It took 34 ms to list leaf files for 1 paths.
+24/04/27 13:35:06 INFO FileSourceStrategy: Pushed Filters:
+24/04/27 13:35:06 INFO FileSourceStrategy: Post-Scan Filters:
+24/04/27 13:35:06 INFO CodeGenerator: Code generated in 98.236888 ms
+24/04/27 13:35:06 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 203.1 KiB, free 434.2 MiB)
+24/04/27 13:35:06 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 35.5 KiB, free 434.2 MiB)
+24/04/27 13:35:06 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on charleston.cs.colostate.edu:40471 (size: 35.5 KiB, free: 434.4 MiB)
+24/04/27 13:35:06 INFO SparkContext: Created broadcast 0 from count at LandmarkAnalysis.scala:40
+24/04/27 13:35:06 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+24/04/27 13:35:07 INFO DAGScheduler: Registering RDD 3 (count at LandmarkAnalysis.scala:40) as input to shuffle 0
+24/04/27 13:35:07 INFO DAGScheduler: Got map stage job 0 (count at LandmarkAnalysis.scala:40) with 4 output partitions
+24/04/27 13:35:07 INFO DAGScheduler: Final stage: ShuffleMapStage 0 (count at LandmarkAnalysis.scala:40)
+24/04/27 13:35:07 INFO DAGScheduler: Parents of final stage: List()
+24/04/27 13:35:07 INFO DAGScheduler: Missing parents: List()
+24/04/27 13:35:07 INFO DAGScheduler: Submitting ShuffleMapStage 0 (MapPartitionsRDD[3] at count at LandmarkAnalysis.scala:40), which has no missing parents
+24/04/27 13:35:07 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 17.8 KiB, free 434.1 MiB)
+24/04/27 13:35:07 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 8.8 KiB, free 434.1 MiB)
+24/04/27 13:35:07 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on charleston.cs.colostate.edu:40471 (size: 8.8 KiB, free: 434.4 MiB)
+24/04/27 13:35:07 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1580
+24/04/27 13:35:07 INFO DAGScheduler: Submitting 4 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[3] at count at LandmarkAnalysis.scala:40) (first 15 tasks are for partitions Vector(0, 1, 2, 3))
+24/04/27 13:35:07 INFO TaskSchedulerImpl: Adding task set 0.0 with 4 tasks resource profile 0
+24/04/27 13:35:07 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (charleston.cs.colostate.edu, executor driver, partition 0, ANY, 8432 bytes)
+24/04/27 13:35:07 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (charleston.cs.colostate.edu, executor driver, partition 1, ANY, 8432 bytes)
+24/04/27 13:35:07 INFO TaskSetManager: Starting task 2.0 in stage 0.0 (TID 2) (charleston.cs.colostate.edu, executor driver, partition 2, ANY, 8432 bytes)
+24/04/27 13:35:07 INFO TaskSetManager: Starting task 3.0 in stage 0.0 (TID 3) (charleston.cs.colostate.edu, executor driver, partition 3, ANY, 8432 bytes)
+24/04/27 13:35:07 INFO Executor: Running task 1.0 in stage 0.0 (TID 1)
+24/04/27 13:35:07 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+24/04/27 13:35:07 INFO Executor: Running task 3.0 in stage 0.0 (TID 3)
+24/04/27 13:35:07 INFO Executor: Running task 2.0 in stage 0.0 (TID 2)
+24/04/27 13:35:07 INFO CodeGenerator: Code generated in 7.170334 ms
+24/04/27 13:35:07 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 12582912-13460863, partition values: [empty row]
+24/04/27 13:35:07 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 4194304-8388608, partition values: [empty row]
+24/04/27 13:35:07 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 8388608-12582912, partition values: [empty row]
+24/04/27 13:35:07 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 0-4194304, partition values: [empty row]
+24/04/27 13:35:07 INFO CodeGenerator: Code generated in 4.534425 ms
+24/04/27 13:35:07 INFO Executor: Finished task 3.0 in stage 0.0 (TID 3). 1986 bytes result sent to driver
+24/04/27 13:35:07 INFO TaskSetManager: Finished task 3.0 in stage 0.0 (TID 3) in 230 ms on charleston.cs.colostate.edu (executor driver) (1/4)
+24/04/27 13:35:07 INFO Executor: Finished task 1.0 in stage 0.0 (TID 1). 1943 bytes result sent to driver
+24/04/27 13:35:07 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 289 ms on charleston.cs.colostate.edu (executor driver) (2/4)
+24/04/27 13:35:07 INFO Executor: Finished task 2.0 in stage 0.0 (TID 2). 1943 bytes result sent to driver
+24/04/27 13:35:07 INFO TaskSetManager: Finished task 2.0 in stage 0.0 (TID 2) in 294 ms on charleston.cs.colostate.edu (executor driver) (3/4)
+24/04/27 13:35:07 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1943 bytes result sent to driver
+24/04/27 13:35:07 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 304 ms on charleston.cs.colostate.edu (executor driver) (4/4)
+24/04/27 13:35:07 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+24/04/27 13:35:07 INFO DAGScheduler: ShuffleMapStage 0 (count at LandmarkAnalysis.scala:40) finished in 0.372 s
+24/04/27 13:35:07 INFO DAGScheduler: looking for newly runnable stages
+24/04/27 13:35:07 INFO DAGScheduler: running: Set()
+24/04/27 13:35:07 INFO DAGScheduler: waiting: Set()
+24/04/27 13:35:07 INFO DAGScheduler: failed: Set()
+24/04/27 13:35:07 INFO CodeGenerator: Code generated in 5.679407 ms
+24/04/27 13:35:07 INFO SparkContext: Starting job: count at LandmarkAnalysis.scala:40
+24/04/27 13:35:07 INFO DAGScheduler: Got job 1 (count at LandmarkAnalysis.scala:40) with 1 output partitions
+24/04/27 13:35:07 INFO DAGScheduler: Final stage: ResultStage 2 (count at LandmarkAnalysis.scala:40)
+24/04/27 13:35:07 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 1)
+24/04/27 13:35:07 INFO DAGScheduler: Missing parents: List()
+24/04/27 13:35:07 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[6] at count at LandmarkAnalysis.scala:40), which has no missing parents
+24/04/27 13:35:07 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 12.5 KiB, free 434.1 MiB)
+24/04/27 13:35:07 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 5.9 KiB, free 434.1 MiB)
+24/04/27 13:35:07 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on charleston.cs.colostate.edu:40471 (size: 5.9 KiB, free: 434.4 MiB)
+24/04/27 13:35:07 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1580
+24/04/27 13:35:07 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[6] at count at LandmarkAnalysis.scala:40) (first 15 tasks are for partitions Vector(0))
+24/04/27 13:35:07 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks resource profile 0
+24/04/27 13:35:07 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 4) (charleston.cs.colostate.edu, executor driver, partition 0, NODE_LOCAL, 7824 bytes)
+24/04/27 13:35:07 INFO Executor: Running task 0.0 in stage 2.0 (TID 4)
+24/04/27 13:35:07 INFO ShuffleBlockFetcherIterator: Getting 4 (240.0 B) non-empty blocks including 4 (240.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+24/04/27 13:35:07 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 4 ms
+24/04/27 13:35:07 INFO CodeGenerator: Code generated in 5.278834 ms
+24/04/27 13:35:07 INFO Executor: Finished task 0.0 in stage 2.0 (TID 4). 4038 bytes result sent to driver
+24/04/27 13:35:07 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 4) in 42 ms on charleston.cs.colostate.edu (executor driver) (1/1)
+24/04/27 13:35:07 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool
+24/04/27 13:35:07 INFO DAGScheduler: ResultStage 2 (count at LandmarkAnalysis.scala:40) finished in 0.047 s
+24/04/27 13:35:07 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+24/04/27 13:35:07 INFO TaskSchedulerImpl: Killing all running tasks in stage 2: Stage finished
+24/04/27 13:35:07 INFO DAGScheduler: Job 1 finished: count at LandmarkAnalysis.scala:40, took 0.053920 s
+Number of rows in CSV: 128842
+Number of columns in DataFrame: 5
+Rank Supercategory
+24/04/27 13:35:07 INFO FileSourceStrategy: Pushed Filters:
+24/04/27 13:35:07 INFO FileSourceStrategy: Post-Scan Filters:
+24/04/27 13:35:07 INFO CodeGenerator: Code generated in 30.590284 ms
+24/04/27 13:35:07 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 203.1 KiB, free 433.9 MiB)
+24/04/27 13:35:07 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 35.5 KiB, free 433.9 MiB)
+24/04/27 13:35:07 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on charleston.cs.colostate.edu:40471 (size: 35.5 KiB, free: 434.3 MiB)
+24/04/27 13:35:07 INFO SparkContext: Created broadcast 3 from show at LandmarkQueryRepository.scala:18
+24/04/27 13:35:07 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+24/04/27 13:35:07 INFO DAGScheduler: Registering RDD 10 (show at LandmarkQueryRepository.scala:18) as input to shuffle 1
+24/04/27 13:35:07 INFO DAGScheduler: Got map stage job 2 (show at LandmarkQueryRepository.scala:18) with 4 output partitions
+24/04/27 13:35:07 INFO DAGScheduler: Final stage: ShuffleMapStage 3 (show at LandmarkQueryRepository.scala:18)
+24/04/27 13:35:07 INFO DAGScheduler: Parents of final stage: List()
+24/04/27 13:35:07 INFO DAGScheduler: Missing parents: List()
+24/04/27 13:35:07 INFO DAGScheduler: Submitting ShuffleMapStage 3 (MapPartitionsRDD[10] at show at LandmarkQueryRepository.scala:18), which has no missing parents
+24/04/27 13:35:07 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 38.5 KiB, free 433.9 MiB)
+24/04/27 13:35:07 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 18.3 KiB, free 433.8 MiB)
+24/04/27 13:35:07 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on charleston.cs.colostate.edu:40471 (size: 18.3 KiB, free: 434.3 MiB)
+24/04/27 13:35:07 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1580
+24/04/27 13:35:07 INFO DAGScheduler: Submitting 4 missing tasks from ShuffleMapStage 3 (MapPartitionsRDD[10] at show at LandmarkQueryRepository.scala:18) (first 15 tasks are for partitions Vector(0, 1, 2, 3))
+24/04/27 13:35:07 INFO TaskSchedulerImpl: Adding task set 3.0 with 4 tasks resource profile 0
+24/04/27 13:35:07 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 5) (charleston.cs.colostate.edu, executor driver, partition 0, ANY, 8432 bytes)
+24/04/27 13:35:07 INFO TaskSetManager: Starting task 1.0 in stage 3.0 (TID 6) (charleston.cs.colostate.edu, executor driver, partition 1, ANY, 8432 bytes)
+24/04/27 13:35:07 INFO TaskSetManager: Starting task 2.0 in stage 3.0 (TID 7) (charleston.cs.colostate.edu, executor driver, partition 2, ANY, 8432 bytes)
+24/04/27 13:35:07 INFO TaskSetManager: Starting task 3.0 in stage 3.0 (TID 8) (charleston.cs.colostate.edu, executor driver, partition 3, ANY, 8432 bytes)
+24/04/27 13:35:07 INFO Executor: Running task 2.0 in stage 3.0 (TID 7)
+24/04/27 13:35:07 INFO Executor: Running task 0.0 in stage 3.0 (TID 5)
+24/04/27 13:35:07 INFO Executor: Running task 1.0 in stage 3.0 (TID 6)
+24/04/27 13:35:07 INFO Executor: Running task 3.0 in stage 3.0 (TID 8)
+24/04/27 13:35:07 INFO CodeGenerator: Code generated in 26.013412 ms
+24/04/27 13:35:07 INFO CodeGenerator: Code generated in 5.481788 ms
+24/04/27 13:35:07 INFO CodeGenerator: Code generated in 2.966145 ms
+24/04/27 13:35:07 INFO CodeGenerator: Code generated in 3.60278 ms
+24/04/27 13:35:07 INFO CodeGenerator: Code generated in 5.844741 ms
+24/04/27 13:35:07 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 12582912-13460863, partition values: [empty row]
+24/04/27 13:35:07 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 8388608-12582912, partition values: [empty row]
+24/04/27 13:35:07 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 0-4194304, partition values: [empty row]
+24/04/27 13:35:07 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 4194304-8388608, partition values: [empty row]
+24/04/27 13:35:07 INFO Executor: Finished task 3.0 in stage 3.0 (TID 8). 2737 bytes result sent to driver
+24/04/27 13:35:07 INFO TaskSetManager: Finished task 3.0 in stage 3.0 (TID 8) in 192 ms on charleston.cs.colostate.edu (executor driver) (1/4)
+24/04/27 13:35:07 INFO BlockManagerInfo: Removed broadcast_2_piece0 on charleston.cs.colostate.edu:40471 in memory (size: 5.9 KiB, free: 434.3 MiB)
+24/04/27 13:35:07 INFO BlockManagerInfo: Removed broadcast_1_piece0 on charleston.cs.colostate.edu:40471 in memory (size: 8.8 KiB, free: 434.3 MiB)
+24/04/27 13:35:07 INFO BlockManagerInfo: Removed broadcast_0_piece0 on charleston.cs.colostate.edu:40471 in memory (size: 35.5 KiB, free: 434.3 MiB)
+24/04/27 13:35:07 INFO Executor: Finished task 1.0 in stage 3.0 (TID 6). 2780 bytes result sent to driver
+24/04/27 13:35:07 INFO TaskSetManager: Finished task 1.0 in stage 3.0 (TID 6) in 248 ms on charleston.cs.colostate.edu (executor driver) (2/4)
+24/04/27 13:35:07 INFO Executor: Finished task 0.0 in stage 3.0 (TID 5). 2780 bytes result sent to driver
+24/04/27 13:35:07 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 5) in 249 ms on charleston.cs.colostate.edu (executor driver) (3/4)
+24/04/27 13:35:07 INFO Executor: Finished task 2.0 in stage 3.0 (TID 7). 2780 bytes result sent to driver
+24/04/27 13:35:07 INFO TaskSetManager: Finished task 2.0 in stage 3.0 (TID 7) in 258 ms on charleston.cs.colostate.edu (executor driver) (4/4)
+24/04/27 13:35:07 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool
+24/04/27 13:35:07 INFO DAGScheduler: ShuffleMapStage 3 (show at LandmarkQueryRepository.scala:18) finished in 0.264 s
+24/04/27 13:35:07 INFO DAGScheduler: looking for newly runnable stages
+24/04/27 13:35:07 INFO DAGScheduler: running: Set()
+24/04/27 13:35:07 INFO DAGScheduler: waiting: Set()
+24/04/27 13:35:07 INFO DAGScheduler: failed: Set()
+24/04/27 13:35:07 INFO ShufflePartitionsUtil: For shuffle(1), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+24/04/27 13:35:07 INFO CodeGenerator: Code generated in 5.746795 ms
+24/04/27 13:35:07 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+24/04/27 13:35:07 INFO CodeGenerator: Code generated in 5.306907 ms
+24/04/27 13:35:07 INFO SparkContext: Starting job: show at LandmarkQueryRepository.scala:18
+24/04/27 13:35:07 INFO DAGScheduler: Got job 3 (show at LandmarkQueryRepository.scala:18) with 1 output partitions
+24/04/27 13:35:07 INFO DAGScheduler: Final stage: ResultStage 5 (show at LandmarkQueryRepository.scala:18)
+24/04/27 13:35:07 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 4)
+24/04/27 13:35:07 INFO DAGScheduler: Missing parents: List()
+24/04/27 13:35:07 INFO DAGScheduler: Submitting ResultStage 5 (MapPartitionsRDD[14] at show at LandmarkQueryRepository.scala:18), which has no missing parents
+24/04/27 13:35:07 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 41.2 KiB, free 434.1 MiB)
+24/04/27 13:35:08 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 19.8 KiB, free 434.1 MiB)
+24/04/27 13:35:08 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on charleston.cs.colostate.edu:40471 (size: 19.8 KiB, free: 434.3 MiB)
+24/04/27 13:35:08 INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1580
+24/04/27 13:35:08 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 5 (MapPartitionsRDD[14] at show at LandmarkQueryRepository.scala:18) (first 15 tasks are for partitions Vector(0))
+24/04/27 13:35:08 INFO TaskSchedulerImpl: Adding task set 5.0 with 1 tasks resource profile 0
+24/04/27 13:35:08 INFO TaskSetManager: Starting task 0.0 in stage 5.0 (TID 9) (charleston.cs.colostate.edu, executor driver, partition 0, NODE_LOCAL, 7824 bytes)
+24/04/27 13:35:08 INFO Executor: Running task 0.0 in stage 5.0 (TID 9)
+24/04/27 13:35:08 INFO CodeGenerator: Code generated in 3.390005 ms
+24/04/27 13:35:08 INFO ShuffleBlockFetcherIterator: Getting 4 (352.3 KiB) non-empty blocks including 4 (352.3 KiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+24/04/27 13:35:08 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 2 ms
+24/04/27 13:35:08 INFO CodeGenerator: Code generated in 6.437439 ms
+24/04/27 13:35:08 INFO Executor: Finished task 0.0 in stage 5.0 (TID 9). 6199 bytes result sent to driver
+24/04/27 13:35:08 INFO TaskSetManager: Finished task 0.0 in stage 5.0 (TID 9) in 48 ms on charleston.cs.colostate.edu (executor driver) (1/1)
+24/04/27 13:35:08 INFO TaskSchedulerImpl: Removed TaskSet 5.0, whose tasks have all completed, from pool
+24/04/27 13:35:08 INFO DAGScheduler: ResultStage 5 (show at LandmarkQueryRepository.scala:18) finished in 0.053 s
+24/04/27 13:35:08 INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+24/04/27 13:35:08 INFO TaskSchedulerImpl: Killing all running tasks in stage 5: Stage finished
+24/04/27 13:35:08 INFO DAGScheduler: Job 3 finished: show at LandmarkQueryRepository.scala:18, took 0.059740 s
+24/04/27 13:35:08 INFO CodeGenerator: Code generated in 3.608753 ms
+24/04/27 13:35:08 INFO CodeGenerator: Code generated in 3.333232 ms
++--------------------+-----+
+|       supercategory|count|
++--------------------+-----+
+|     church building|19832|
+|            mountain| 6286|
+|              museum| 3816|
+|              castle| 3541|
+|                lake| 2767|
+|            building| 2461|
+|                park| 1985|
+|            chÃ¢teau| 1756|
+|          lighthouse| 1587|
+|            cemetery| 1489|
+|architectural str...| 1449|
+|              island| 1429|
+|          art museum| 1364|
+|               house| 1287|
+|               river| 1194|
+|           monastery| 1107|
+|          skyscraper| 1057|
+| archaeological site| 1031|
+|              palace|  990|
+|       parish church|  983|
++--------------------+-----+
+only showing top 20 rows
+
+Rank Hierarchical Label
+24/04/27 13:35:08 INFO FileSourceStrategy: Pushed Filters:
+24/04/27 13:35:08 INFO FileSourceStrategy: Post-Scan Filters:
+24/04/27 13:35:08 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 203.1 KiB, free 433.9 MiB)
+24/04/27 13:35:08 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 35.5 KiB, free 433.8 MiB)
+24/04/27 13:35:08 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on charleston.cs.colostate.edu:40471 (size: 35.5 KiB, free: 434.3 MiB)
+24/04/27 13:35:08 INFO SparkContext: Created broadcast 6 from show at LandmarkQueryRepository.scala:32
+24/04/27 13:35:08 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+24/04/27 13:35:08 INFO DAGScheduler: Registering RDD 18 (show at LandmarkQueryRepository.scala:32) as input to shuffle 2
+24/04/27 13:35:08 INFO DAGScheduler: Got map stage job 4 (show at LandmarkQueryRepository.scala:32) with 4 output partitions
+24/04/27 13:35:08 INFO DAGScheduler: Final stage: ShuffleMapStage 6 (show at LandmarkQueryRepository.scala:32)
+24/04/27 13:35:08 INFO DAGScheduler: Parents of final stage: List()
+24/04/27 13:35:08 INFO DAGScheduler: Missing parents: List()
+24/04/27 13:35:08 INFO DAGScheduler: Submitting ShuffleMapStage 6 (MapPartitionsRDD[18] at show at LandmarkQueryRepository.scala:32), which has no missing parents
+24/04/27 13:35:08 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 38.5 KiB, free 433.8 MiB)
+24/04/27 13:35:08 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 18.3 KiB, free 433.8 MiB)
+24/04/27 13:35:08 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on charleston.cs.colostate.edu:40471 (size: 18.3 KiB, free: 434.3 MiB)
+24/04/27 13:35:08 INFO SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1580
+24/04/27 13:35:08 INFO DAGScheduler: Submitting 4 missing tasks from ShuffleMapStage 6 (MapPartitionsRDD[18] at show at LandmarkQueryRepository.scala:32) (first 15 tasks are for partitions Vector(0, 1, 2, 3))
+24/04/27 13:35:08 INFO TaskSchedulerImpl: Adding task set 6.0 with 4 tasks resource profile 0
+24/04/27 13:35:08 INFO TaskSetManager: Starting task 0.0 in stage 6.0 (TID 10) (charleston.cs.colostate.edu, executor driver, partition 0, ANY, 8432 bytes)
+24/04/27 13:35:08 INFO TaskSetManager: Starting task 1.0 in stage 6.0 (TID 11) (charleston.cs.colostate.edu, executor driver, partition 1, ANY, 8432 bytes)
+24/04/27 13:35:08 INFO TaskSetManager: Starting task 2.0 in stage 6.0 (TID 12) (charleston.cs.colostate.edu, executor driver, partition 2, ANY, 8432 bytes)
+24/04/27 13:35:08 INFO TaskSetManager: Starting task 3.0 in stage 6.0 (TID 13) (charleston.cs.colostate.edu, executor driver, partition 3, ANY, 8432 bytes)
+24/04/27 13:35:08 INFO Executor: Running task 0.0 in stage 6.0 (TID 10)
+24/04/27 13:35:08 INFO Executor: Running task 2.0 in stage 6.0 (TID 12)
+24/04/27 13:35:08 INFO Executor: Running task 1.0 in stage 6.0 (TID 11)
+24/04/27 13:35:08 INFO Executor: Running task 3.0 in stage 6.0 (TID 13)
+24/04/27 13:35:08 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 0-4194304, partition values: [empty row]
+24/04/27 13:35:08 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 8388608-12582912, partition values: [empty row]
+24/04/27 13:35:08 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 12582912-13460863, partition values: [empty row]
+24/04/27 13:35:08 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 4194304-8388608, partition values: [empty row]
+24/04/27 13:35:08 INFO Executor: Finished task 3.0 in stage 6.0 (TID 13). 2737 bytes result sent to driver
+24/04/27 13:35:08 INFO TaskSetManager: Finished task 3.0 in stage 6.0 (TID 13) in 54 ms on charleston.cs.colostate.edu (executor driver) (1/4)
+24/04/27 13:35:08 INFO Executor: Finished task 2.0 in stage 6.0 (TID 12). 2737 bytes result sent to driver
+24/04/27 13:35:08 INFO TaskSetManager: Finished task 2.0 in stage 6.0 (TID 12) in 97 ms on charleston.cs.colostate.edu (executor driver) (2/4)
+24/04/27 13:35:08 INFO Executor: Finished task 0.0 in stage 6.0 (TID 10). 2737 bytes result sent to driver
+24/04/27 13:35:08 INFO TaskSetManager: Finished task 0.0 in stage 6.0 (TID 10) in 134 ms on charleston.cs.colostate.edu (executor driver) (3/4)
+24/04/27 13:35:08 INFO Executor: Finished task 1.0 in stage 6.0 (TID 11). 2737 bytes result sent to driver
+24/04/27 13:35:08 INFO TaskSetManager: Finished task 1.0 in stage 6.0 (TID 11) in 139 ms on charleston.cs.colostate.edu (executor driver) (4/4)
+24/04/27 13:35:08 INFO TaskSchedulerImpl: Removed TaskSet 6.0, whose tasks have all completed, from pool
+24/04/27 13:35:08 INFO DAGScheduler: ShuffleMapStage 6 (show at LandmarkQueryRepository.scala:32) finished in 0.144 s
+24/04/27 13:35:08 INFO DAGScheduler: looking for newly runnable stages
+24/04/27 13:35:08 INFO DAGScheduler: running: Set()
+24/04/27 13:35:08 INFO DAGScheduler: waiting: Set()
+24/04/27 13:35:08 INFO DAGScheduler: failed: Set()
+24/04/27 13:35:08 INFO ShufflePartitionsUtil: For shuffle(2), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+24/04/27 13:35:08 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+24/04/27 13:35:08 INFO SparkContext: Starting job: show at LandmarkQueryRepository.scala:32
+24/04/27 13:35:08 INFO DAGScheduler: Got job 5 (show at LandmarkQueryRepository.scala:32) with 1 output partitions
+24/04/27 13:35:08 INFO DAGScheduler: Final stage: ResultStage 8 (show at LandmarkQueryRepository.scala:32)
+24/04/27 13:35:08 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 7)
+24/04/27 13:35:08 INFO DAGScheduler: Missing parents: List()
+24/04/27 13:35:08 INFO DAGScheduler: Submitting ResultStage 8 (MapPartitionsRDD[22] at show at LandmarkQueryRepository.scala:32), which has no missing parents
+24/04/27 13:35:08 INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 41.2 KiB, free 433.7 MiB)
+24/04/27 13:35:08 INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 19.8 KiB, free 433.7 MiB)
+24/04/27 13:35:08 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on charleston.cs.colostate.edu:40471 (size: 19.8 KiB, free: 434.3 MiB)
+24/04/27 13:35:08 INFO SparkContext: Created broadcast 8 from broadcast at DAGScheduler.scala:1580
+24/04/27 13:35:08 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 8 (MapPartitionsRDD[22] at show at LandmarkQueryRepository.scala:32) (first 15 tasks are for partitions Vector(0))
+24/04/27 13:35:08 INFO TaskSchedulerImpl: Adding task set 8.0 with 1 tasks resource profile 0
+24/04/27 13:35:08 INFO TaskSetManager: Starting task 0.0 in stage 8.0 (TID 14) (charleston.cs.colostate.edu, executor driver, partition 0, NODE_LOCAL, 7824 bytes)
+24/04/27 13:35:08 INFO Executor: Running task 0.0 in stage 8.0 (TID 14)
+24/04/27 13:35:08 INFO ShuffleBlockFetcherIterator: Getting 4 (20.6 KiB) non-empty blocks including 4 (20.6 KiB) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+24/04/27 13:35:08 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+24/04/27 13:35:08 INFO Executor: Finished task 0.0 in stage 8.0 (TID 14). 6151 bytes result sent to driver
+24/04/27 13:35:08 INFO TaskSetManager: Finished task 0.0 in stage 8.0 (TID 14) in 9 ms on charleston.cs.colostate.edu (executor driver) (1/1)
+24/04/27 13:35:08 INFO TaskSchedulerImpl: Removed TaskSet 8.0, whose tasks have all completed, from pool
+24/04/27 13:35:08 INFO DAGScheduler: ResultStage 8 (show at LandmarkQueryRepository.scala:32) finished in 0.012 s
+24/04/27 13:35:08 INFO DAGScheduler: Job 5 is finished. Cancelling potential speculative or zombie tasks for this job
+24/04/27 13:35:08 INFO TaskSchedulerImpl: Killing all running tasks in stage 8: Stage finished
+24/04/27 13:35:08 INFO DAGScheduler: Job 5 finished: show at LandmarkQueryRepository.scala:32, took 0.015720 s
++------------------+-----+
+|hierarchical_label|count|
++------------------+-----+
+|            church|25722|
+|              NULL|23632|
+|             parks| 8501|
+|          mountain| 8326|
+|     castle / fort| 7499|
+|            museum| 7224|
+|              lake| 4266|
+|          cemetery| 2821|
+|      sports venue| 2761|
+|            bridge| 2471|
+|             house| 2442|
+|            island| 1848|
+|        lighthouse| 1647|
+|             river| 1409|
+|             tower| 1390|
+|              city| 1284|
+|         monastery| 1273|
+|            palace| 1099|
+|archeological site| 1071|
+|        skyscraper| 1065|
++------------------+-----+
+only showing top 20 rows
+
+Rank Natural or Human Made
+24/04/27 13:35:08 INFO FileSourceStrategy: Pushed Filters:
+24/04/27 13:35:08 INFO FileSourceStrategy: Post-Scan Filters:
+24/04/27 13:35:08 INFO MemoryStore: Block broadcast_9 stored as values in memory (estimated size 203.1 KiB, free 433.5 MiB)
+24/04/27 13:35:08 INFO MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 35.5 KiB, free 433.5 MiB)
+24/04/27 13:35:08 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on charleston.cs.colostate.edu:40471 (size: 35.5 KiB, free: 434.2 MiB)
+24/04/27 13:35:08 INFO SparkContext: Created broadcast 9 from show at LandmarkQueryRepository.scala:46
+24/04/27 13:35:08 INFO FileSourceScanExec: Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+24/04/27 13:35:08 INFO DAGScheduler: Registering RDD 26 (show at LandmarkQueryRepository.scala:46) as input to shuffle 3
+24/04/27 13:35:08 INFO DAGScheduler: Got map stage job 6 (show at LandmarkQueryRepository.scala:46) with 4 output partitions
+24/04/27 13:35:08 INFO DAGScheduler: Final stage: ShuffleMapStage 9 (show at LandmarkQueryRepository.scala:46)
+24/04/27 13:35:08 INFO DAGScheduler: Parents of final stage: List()
+24/04/27 13:35:08 INFO DAGScheduler: Missing parents: List()
+24/04/27 13:35:08 INFO DAGScheduler: Submitting ShuffleMapStage 9 (MapPartitionsRDD[26] at show at LandmarkQueryRepository.scala:46), which has no missing parents
+24/04/27 13:35:08 INFO MemoryStore: Block broadcast_10 stored as values in memory (estimated size 38.6 KiB, free 433.4 MiB)
+24/04/27 13:35:08 INFO MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 18.4 KiB, free 433.4 MiB)
+24/04/27 13:35:08 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on charleston.cs.colostate.edu:40471 (size: 18.4 KiB, free: 434.2 MiB)
+24/04/27 13:35:08 INFO SparkContext: Created broadcast 10 from broadcast at DAGScheduler.scala:1580
+24/04/27 13:35:08 INFO DAGScheduler: Submitting 4 missing tasks from ShuffleMapStage 9 (MapPartitionsRDD[26] at show at LandmarkQueryRepository.scala:46) (first 15 tasks are for partitions Vector(0, 1, 2, 3))
+24/04/27 13:35:08 INFO TaskSchedulerImpl: Adding task set 9.0 with 4 tasks resource profile 0
+24/04/27 13:35:08 INFO TaskSetManager: Starting task 0.0 in stage 9.0 (TID 15) (charleston.cs.colostate.edu, executor driver, partition 0, ANY, 8432 bytes)
+24/04/27 13:35:08 INFO TaskSetManager: Starting task 1.0 in stage 9.0 (TID 16) (charleston.cs.colostate.edu, executor driver, partition 1, ANY, 8432 bytes)
+24/04/27 13:35:08 INFO TaskSetManager: Starting task 2.0 in stage 9.0 (TID 17) (charleston.cs.colostate.edu, executor driver, partition 2, ANY, 8432 bytes)
+24/04/27 13:35:08 INFO TaskSetManager: Starting task 3.0 in stage 9.0 (TID 18) (charleston.cs.colostate.edu, executor driver, partition 3, ANY, 8432 bytes)
+24/04/27 13:35:08 INFO Executor: Running task 2.0 in stage 9.0 (TID 17)
+24/04/27 13:35:08 INFO Executor: Running task 1.0 in stage 9.0 (TID 16)
+24/04/27 13:35:08 INFO Executor: Running task 3.0 in stage 9.0 (TID 18)
+24/04/27 13:35:08 INFO Executor: Running task 0.0 in stage 9.0 (TID 15)
+24/04/27 13:35:08 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 8388608-12582912, partition values: [empty row]
+24/04/27 13:35:08 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 0-4194304, partition values: [empty row]
+24/04/27 13:35:08 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 4194304-8388608, partition values: [empty row]
+24/04/27 13:35:08 INFO FileScanRDD: Reading File path: hdfs://charleston.cs.colostate.edu:30141/train_label.csv, range: 12582912-13460863, partition values: [empty row]
+24/04/27 13:35:08 INFO Executor: Finished task 3.0 in stage 9.0 (TID 18). 2737 bytes result sent to driver
+24/04/27 13:35:08 INFO TaskSetManager: Finished task 3.0 in stage 9.0 (TID 18) in 51 ms on charleston.cs.colostate.edu (executor driver) (1/4)
+24/04/27 13:35:08 INFO Executor: Finished task 0.0 in stage 9.0 (TID 15). 2737 bytes result sent to driver
+24/04/27 13:35:08 INFO TaskSetManager: Finished task 0.0 in stage 9.0 (TID 15) in 126 ms on charleston.cs.colostate.edu (executor driver) (2/4)
+24/04/27 13:35:08 INFO Executor: Finished task 2.0 in stage 9.0 (TID 17). 2737 bytes result sent to driver
+24/04/27 13:35:08 INFO TaskSetManager: Finished task 2.0 in stage 9.0 (TID 17) in 128 ms on charleston.cs.colostate.edu (executor driver) (3/4)
+24/04/27 13:35:08 INFO Executor: Finished task 1.0 in stage 9.0 (TID 16). 2737 bytes result sent to driver
+24/04/27 13:35:08 INFO TaskSetManager: Finished task 1.0 in stage 9.0 (TID 16) in 136 ms on charleston.cs.colostate.edu (executor driver) (4/4)
+24/04/27 13:35:08 INFO TaskSchedulerImpl: Removed TaskSet 9.0, whose tasks have all completed, from pool
+24/04/27 13:35:08 INFO DAGScheduler: ShuffleMapStage 9 (show at LandmarkQueryRepository.scala:46) finished in 0.140 s
+24/04/27 13:35:08 INFO DAGScheduler: looking for newly runnable stages
+24/04/27 13:35:08 INFO DAGScheduler: running: Set()
+24/04/27 13:35:08 INFO DAGScheduler: waiting: Set()
+24/04/27 13:35:08 INFO DAGScheduler: failed: Set()
+24/04/27 13:35:08 INFO ShufflePartitionsUtil: For shuffle(3), advisory target size: 67108864, actual target size 1048576, minimum partition size: 1048576
+24/04/27 13:35:08 INFO HashAggregateExec: spark.sql.codegen.aggregate.map.twolevel.enabled is set to true, but current version of codegened fast hashmap does not support this aggregate.
+24/04/27 13:35:08 INFO SparkContext: Starting job: show at LandmarkQueryRepository.scala:46
+24/04/27 13:35:08 INFO DAGScheduler: Got job 7 (show at LandmarkQueryRepository.scala:46) with 1 output partitions
+24/04/27 13:35:08 INFO DAGScheduler: Final stage: ResultStage 11 (show at LandmarkQueryRepository.scala:46)
+24/04/27 13:35:08 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 10)
+24/04/27 13:35:08 INFO DAGScheduler: Missing parents: List()
+24/04/27 13:35:08 INFO DAGScheduler: Submitting ResultStage 11 (MapPartitionsRDD[30] at show at LandmarkQueryRepository.scala:46), which has no missing parents
+24/04/27 13:35:08 INFO MemoryStore: Block broadcast_11 stored as values in memory (estimated size 41.2 KiB, free 433.4 MiB)
+24/04/27 13:35:08 INFO MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 19.8 KiB, free 433.4 MiB)
+24/04/27 13:35:08 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on charleston.cs.colostate.edu:40471 (size: 19.8 KiB, free: 434.2 MiB)
+24/04/27 13:35:08 INFO SparkContext: Created broadcast 11 from broadcast at DAGScheduler.scala:1580
+24/04/27 13:35:08 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 11 (MapPartitionsRDD[30] at show at LandmarkQueryRepository.scala:46) (first 15 tasks are for partitions Vector(0))
+24/04/27 13:35:08 INFO TaskSchedulerImpl: Adding task set 11.0 with 1 tasks resource profile 0
+24/04/27 13:35:08 INFO TaskSetManager: Starting task 0.0 in stage 11.0 (TID 19) (charleston.cs.colostate.edu, executor driver, partition 0, NODE_LOCAL, 7824 bytes)
+24/04/27 13:35:08 INFO Executor: Running task 0.0 in stage 11.0 (TID 19)
+24/04/27 13:35:08 INFO ShuffleBlockFetcherIterator: Getting 4 (888.0 B) non-empty blocks including 4 (888.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+24/04/27 13:35:08 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+24/04/27 13:35:08 INFO Executor: Finished task 0.0 in stage 11.0 (TID 19). 5216 bytes result sent to driver
+24/04/27 13:35:08 INFO TaskSetManager: Finished task 0.0 in stage 11.0 (TID 19) in 8 ms on charleston.cs.colostate.edu (executor driver) (1/1)
+24/04/27 13:35:08 INFO TaskSchedulerImpl: Removed TaskSet 11.0, whose tasks have all completed, from pool
+24/04/27 13:35:08 INFO DAGScheduler: ResultStage 11 (show at LandmarkQueryRepository.scala:46) finished in 0.011 s
+24/04/27 13:35:08 INFO DAGScheduler: Job 7 is finished. Cancelling potential speculative or zombie tasks for this job
+24/04/27 13:35:08 INFO TaskSchedulerImpl: Killing all running tasks in stage 11: Stage finished
+24/04/27 13:35:08 INFO DAGScheduler: Job 7 finished: show at LandmarkQueryRepository.scala:46, took 0.013141 s
++---------------------+-----+
+|natural_or_human_made|count|
++---------------------+-----+
+|           human-made|76810|
+|              natural|28400|
+|                 NULL|23632|
++---------------------+-----+
+
+===================================query execution time: 1348 milliseconds==========================================================
+====================================total execution time: 3967 milliseconds===========================================================
+24/04/27 13:35:08 INFO SparkContext: SparkContext is stopping with exitCode 0.
+24/04/27 13:35:08 INFO BlockManagerInfo: Removed broadcast_7_piece0 on charleston.cs.colostate.edu:40471 in memory (size: 18.3 KiB, free: 434.2 MiB)
+24/04/27 13:35:08 INFO BlockManagerInfo: Removed broadcast_6_piece0 on charleston.cs.colostate.edu:40471 in memory (size: 35.5 KiB, free: 434.2 MiB)
+24/04/27 13:35:08 INFO SparkUI: Stopped Spark web UI at http://charleston.cs.colostate.edu:4040
+24/04/27 13:35:08 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+24/04/27 13:35:08 INFO MemoryStore: MemoryStore cleared
+24/04/27 13:35:08 INFO BlockManager: BlockManager stopped
+24/04/27 13:35:08 INFO BlockManagerMaster: BlockManagerMaster stopped
+24/04/27 13:35:08 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+24/04/27 13:35:08 INFO SparkContext: Successfully stopped SparkContext
+24/04/27 13:35:08 INFO ShutdownHookManager: Shutdown hook called
+24/04/27 13:35:08 INFO ShutdownHookManager: Deleting directory /tmp/spark-e3bbe2d2-d336-4175-91e2-491952ab5d63
+24/04/27 13:35:08 INFO ShutdownHookManager: Deleting directory /tmp/spark-8d29af55-3674-4563-aacf-13aa6766b2ac
+charleston:~/Documents/cs535/TripRecs/LandmarkSparkAnalytics/target$
